@@ -11,3 +11,4 @@ public interface QuestionRepository extends JpaRepository<Question,Long> {
     Page<Question>findAll(Pageable pageable);
 
 }
+//
