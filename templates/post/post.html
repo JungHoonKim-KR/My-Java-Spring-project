@@ -41,7 +41,7 @@
                 <td th:text="${q.id}">1</td>
                 <td><a class="link-dark" th:text="${q.title}" th:href="@{content(id=${q.id})}"> </a></td>
                 <td th:text="${q.username}">나</td>
-                <td th:text="${q.dateTime}">2023.02.27</td>
+                <td th:text="${#temporals.format(q.dateTime,'yyyy-MM-dd')}">2023.02.27</td>
             </tr>
 
         </table>
@@ -52,9 +52,9 @@
 </div>
 <!-- 페이지 영역 -->
 
-<div class="container position-relative top-100 start-50 translate-middle">
+<div class="container">
     <nav aria-label="...">
-        <ul class="pagination">
+        <ul class="pagination justify-content-center" >
             <li class="page-item ">
                 <a th:href="@{/post(page=0)}"><span class="page-link">처음</span></a>
 
@@ -63,7 +63,7 @@
                 <a th:href="@{/post(page=${prePage})}"><span class="page-link">이전</span></a>
             </li>
 
-                <span class="page-link" aria-current="page"  th:each="page: ${#numbers.sequence(startPage, endPage)}">
+                <span class="page-link"  th:each="page: ${#numbers.sequence(startPage, endPage)}">
             <a th:text="${page+1}" th:href="@{/post(page=${page})}"></a>
         </span>
 
